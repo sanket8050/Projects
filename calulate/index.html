@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rectangle Calculator</title>
+    <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <div class="inputs">
+            <h1>Calculate Rectangle Area & Perimeter</h1>
+            <input type="number" placeholder="Enter width" id="width" min="1">
+            <input type="number" placeholder="Enter height" id="height" min="1">
+            <button id="calculateBtn">Calculate</button>
+        </div>
+        <h2>📋 Results:</h2>
+        <table id="resultTable" border="1" style="margin: auto; width: 90%;">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Width</th>
+                    <th>Height</th>
+                    <th>Area</th>
+                    <th>Perimeter</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- Rows will be added here -->
+            </tbody>
+        </table>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
