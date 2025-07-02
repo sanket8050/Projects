@@ -11,8 +11,11 @@ body {
 
 .container {
     background-color: #fff;
-    width: 500px;
-    margin: 40px auto;
+    width: fit-content;
+    
+    min-width: auto;
+    max-width: 100%;
+    margin: 100px auto;
     padding: 2rem 2rem;
     border-radius: 16px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.1);
@@ -20,6 +23,7 @@ body {
     flex-direction: column;
     align-items: center;
     border:2px solid rgb(23, 22, 22);
+    position: relative;
 }
 
 .inputs {
@@ -69,13 +73,14 @@ h1 {
     text-align: center;
     width: 100%;
     border-radius: 10px;
-    padding: 0.5rem 0;
-    /* margin-bottom: 1rem; */
+    padding: 1rem;
+    
 }
 
 #resultTable {
     margin-top: 1rem;
     border-collapse: collapse;
+    position: relative;
     width: 100%;
 }
 
