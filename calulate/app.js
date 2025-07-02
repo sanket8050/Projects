@@ -91,9 +91,26 @@ document.getElementById("tableBody").addEventListener("click", function(e) {
     btn.closest("tr").remove();
     saveTasksToLocalStorage();
   }
+
+ 
+
+  
 });
 
+ 
+
 document.getElementById("calculateBtn").addEventListener("click", calculate);
+document.getElementById("calculateBtn").addEventListener("submit", function(e) {
+  e.preventDefault(); // Prevent form from submitting/reloading
+  calculate();
+});
+
+
+  document.getElementById("height").addEventListener("keypress",(e)=>{
+    if(e.key === "Enter"){
+      calculate();
+    }
+  })
 
 // Load tasks from localStorage on page load
 loadTasksFromLocalStorage();
