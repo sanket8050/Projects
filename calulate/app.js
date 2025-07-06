@@ -112,5 +112,11 @@ document.getElementById("calculateBtn").addEventListener("submit", function(e) {
     }
   })
 
+  document.getElementById("width").addEventListener("keypress",(e)=>{
+    if(e.key === "Enter"){
+      calculate();
+    }
+  })
+
 // Load tasks from localStorage on page load
 loadTasksFromLocalStorage();
