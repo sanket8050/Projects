@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Number Guessing Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      max-width: 420px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(44, 62, 80, 0.18);
+      padding: 2.5rem 2rem 2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 2rem 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .container::before {
+      content: "";
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 120px;
+      height: 120px;
+      background: rgba(116, 235, 213, 0.2);
+      border-radius: 50%;
+      z-index: 0;
+    }
+    h1 {
+      margin-bottom: 0.5rem;
+      color: #007bff;
+      font-size: 2rem;
+      letter-spacing: 1px;
+      z-index: 1;
+    }
+    p {
+      color: #555;
+      margin-bottom: 1.5rem;
+      z-index: 1;
+    }
+    .input-group {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
+      width: 100%;
+      justify-content: center;
+      z-index: 1;
+    }
+    #guessField {
+      padding: 0.6rem 1.2rem;
+      border-radius: 10px;
+      border: 1.5px solid #b2bec3;
+      font-size: 1.1rem;
+      width: 130px;
+      text-align: center;
+      background: #f8fafc;
+      transition: border 0.2s;
+    }
+    #guessField:focus {
+      border: 1.5px solid #007bff;
+      outline: none;
+      background: #eaf6fb;
+    }
+    #subt {
+      padding: 0.6rem 2rem;
+      border-radius: 10px;
+      border: none;
+      background: linear-gradient(90deg, #007bff 60%, #74ebd5 100%);
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,123,255,0.08);
+      transition: background 0.2s, transform 0.1s;
+    }
+    #subt:hover {
+      background: linear-gradient(90deg, #0056b3 60%, #74ebd5 100%);
+      transform: translateY(-2px) scale(1.04);
+    }
+    .info-block {
+      width: 100%;
+      background: #f1f7fa;
+      border-radius: 10px;
+      padding: 1rem 1rem 0.5rem 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 1px 4px rgba(44, 62, 80, 0.06);
+      z-index: 1;
+    }
+    .info-block strong {
+      color: #007bff;
+    }
+    .guesses, .lastResult {
+      font-size: 1.08rem;
+      margin-bottom: 0.3rem;
+      display: block;
+    }
+    .lowOrHi {
+      margin: 0.7rem 0 0.5rem 0;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: #d9534f;
+      min-height: 1.3em;
+      z-index: 1;
+      text-align: center;
+    }
+    .resultParas {
+      margin-top: 1.2rem;
+      text-align: center;
+      z-index: 1;
+    }
+    .resultParas button, .resultParas h2 {
+      margin-top: 1rem;
+    }
+    .resultParas button {
+      padding: 0.5rem 1.5rem;
+      border-radius: 8px;
+      border: none;
+      background: #28a745;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .resultParas button:hover {
+      background: #218838;
+    }
+    @media (max-width: 500px) {
+      .container {
+        padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+      }
+      h1 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Number Guessing Game</h1>
+    <p>Guess a number between 1 and 100.</p>
+    <div class="input-group">
+      <input type="number" id="guessField" placeholder="Enter your guess" min="1" max="100" autocomplete="off">
+      <button id="subt">Guess</button>
+    </div>
+    <div class="info-block">
+      <span class="guesses"><strong>Your guesses:</strong> <span class="guesses"></span></span>
+      <span class="lastResult"><strong>Guesses left:</strong> <span class="lastResult"></span></span>
+    </div>
+    <div class="lowOrHi"></div>
+    <div class="resultParas"></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
