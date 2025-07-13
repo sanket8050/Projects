@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Web Developer Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dark-mode">
+    <!-- Advanced Particle System -->
+    <div class="particles-container">
+        <canvas id="particles"></canvas>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Cursor Follower -->
+    <div class="cursor-follower"></div>
+
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <div class="logo-container">
+                        <span class="logo-text">Sanket Adsare</span>
+                        <div class="logo-subtitle">Developer</div>
+                    </div>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="theme-toggle" id="themeToggle">
+                        <div class="toggle-track">
+                            <div class="toggle-thumb">
+                                <i class="fas fa-sun sun-icon"></i>
+                                <i class="fas fa-moon moon-icon"></i>
+                            </div>
+                        </div>
+                    </button>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Enhanced Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-intro">
+                        <div class="greeting">
+                            <span class="wave">👋</span>
+                            <span class="greeting-text">Hello, I'm</span>
+                        </div>
+                        <h1 class="hero-name">
+                            <!-- <span class="name-part"></span> -->
+                            <span class="name-part gradient-text">SANKET ADSARE</span>
+                        </h1>
+                        <div class="hero-roles">
+                            <span class="role-prefix">I'm a</span>
+                            <div class="typing-container">
+                                <span class="typing-text" id="typingText"></span>
+                                <span class="cursor-blink">|</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-education">
+                        <div class="education-card">
+                            <div class="education-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="education-info">
+                                <div class="education-degree">Bachelor of ENTC</div>
+                                <div class="education-college">Pune Vidhyarthi Grih's COET</div>
+                                <div class="education-year">2022 - 2026</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="hero-description">
+                        Passionate Computer Science student crafting innovative web solutions. 
+                        Currently pursuing my degree while building real-world applications 
+                        and exploring the endless possibilities of modern web development.
+                    </p>
+
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="6">0</div>
+                            <div class="stat-label">Projects Built</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="1">0</div>
+                            <div class="stat-label">Years Learning</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="100">0</div>
+                            <div class="stat-label">% Passionate</div>
+                        </div>
+                    </div>
+
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">
+                            <span class="btn-text">View My Work</span>
+                            <div class="btn-icon">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <span class="btn-text">Let's Connect</span>
+                            <div class="btn-icon">
+                                <i class="fas fa-paper-plane"></i>
+                            </div>
+                        </a>
+                        <a href="/resume.pdf" class="btn btn-outline" target="_blank">
+                            <span class="btn-text">Download CV</span>
+                            <div class="btn-icon">
+                                <i class="fas fa-download"></i>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://github.com/sanket8050" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/sanket-adsare-573659257/" class="social-link" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://x.com/sanket_adsare" class="social-link" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="sanketadsare5@gmail.com" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="profile-container">
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="/placeholder.svg?height=300&width=300" alt="Your Name" />
+                                <div class="profile-ring"></div>
+                                <div class="status-indicator">
+                                    <div class="status-dot"></div>
+                                    <span>Available for opportunities</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="floating-elements">
+                            <div class="floating-card tech-card">
+                                <i class="fab fa-js-square"></i>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="floating-card tech-card">
+                                <i class="fab fa-react"></i>
+                                <span>React</span>
+                            </div>
+                            <div class="floating-card tech-card">
+                                <i class="fab fa-css3-alt"></i>
+                                <span>CSS3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator">
+                <div class="scroll-text">Scroll to explore</div>
+                <div class="scroll-arrow">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-badge">
+                        <i class="fas fa-user"></i>
+                        <span>About Me</span>
+                    </div>
+                    <h2 class="section-title">My Journey</h2>
+                </div>
+
+                <div class="about-content">
+                    <div class="about-text">
+                        <div class="about-intro">
+                            <h3>Hello! I'm <span class="highlight">Sanket</span></h3>
+                            <p>
+                                I'm a passionate Computer Science student at <strong>Your College Name</strong>, 
+                                currently in my <strong> last year</strong> of pursuing a Bachelor's degree. 
+                                My journey in web development started during my first year, and since then, 
+                                I've been fascinated by the power of code to create amazing digital experiences.
+                            </p>
+                        </div>
+
+                        <div class="about-details">
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="detail-info">
+                                    <span class="detail-label">Pune</span>
+                                    <span class="detail-value">Pune, India</span>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <div class="detail-info">
+                                    <span class="detail-label">Age</span>
+                                    <span class="detail-value">20 years old</span>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-language"></i>
+                                </div>
+                                <div class="detail-info">
+                                    <span class="detail-label">Languages</span>
+                                    <span class="detail-value">English, Hindi, Marathi</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="education-timeline">
+                        <h3>Education & Learning</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <div class="timeline-year">2022 - Present</div>
+                                    <div class="timeline-title">Bachelor of EnTC</div>
+                                    <div class="timeline-subtitle">PVG COET</div>
+                                    <div class="timeline-description">
+                                        Focusing on software development, algorithms, and web technologies. 
+                                        Maintaining excellent academic performance while building practical projects.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <div class="timeline-year">2020 - 2022</div>
+                                    <div class="timeline-title">Higher Secondary Education</div>
+                                    <div class="timeline-subtitle">Residential Jr. College ,Ahilyanagar</div>
+                                    <div class="timeline-description">
+                                        Completed with distinction in Science stream, 
+                                        developing strong foundation in mathematics and logical thinking.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-section">
+                    <h3>Technical Skills</h3>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Frontend</h4>
+                            <div class="skill-items">
+                                <div class="skill-item">
+                                    <i class="fab fa-html5"></i>
+                                    <span>HTML5</span>
+                                    <div class="skill-level" data-level="90"></div>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fab fa-css3-alt"></i>
+                                    <span>CSS3</span>
+                                    <div class="skill-level" data-level="85"></div>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fab fa-js-square"></i>
+                                    <span>JavaScript</span>
+                                    <div class="skill-level" data-level="80"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Tools & Others</h4>
+                            <div class="skill-items">
+                                <div class="skill-item">
+                                    <i class="fab fa-git-alt"></i>
+                                    <span>Git</span>
+                                    <div class="skill-level" data-level="75"></div>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fas fa-cloud"></i>
+                                    <span>Vercel</span>
+                                    <div class="skill-level" data-level="85"></div>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>Responsive Design</span>
+                                    <div class="skill-level" data-level="90"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced Projects Section -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-badge">
+                        <i class="fas fa-rocket"></i>
+                        <span>My Work</span>
+                    </div>
+                    <h2 class="section-title">Featured Projects</h2>
+                    <p class="section-description">
+                        A showcase of my development journey - each project represents 
+                        growth, learning, and passion for creating meaningful digital experiences.
+                    </p>
+                </div>
+                
+                <div class="projects-filter">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="web-app">Web Apps</button>
+                    <button class="filter-btn" data-filter="tool">Tools</button>
+                    <button class="filter-btn" data-filter="game">Games</button>
+                </div>
+
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Projects will be dynamically inserted here -->
+                </div>
+
+                <div class="projects-cta">
+                    <div class="cta-content">
+                        <h3>Want to see more?</h3>
+                        <p>Check out my GitHub for additional projects and contributions</p>
+                        <a href="https://github.com/sanket8050" class="btn btn-primary" target="_blank">
+                            <span class="btn-text">Visit GitHub</span>
+                            <div class="btn-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="section-badge">
+                            <i class="fas fa-envelope"></i>
+                            <span>Get In Touch</span>
+                        </div>
+                        <h2 class="contact-title">Let's Create Something Amazing Together</h2>
+                        <p class="contact-description">
+                            I'm always excited to collaborate on new projects, discuss opportunities, 
+                            or simply connect with fellow developers and tech enthusiasts.
+                        </p>
+
+                        <div class="contact-methods">
+                            <a href="sanketadsare5@gmail.com" class="contact-method">
+                                <div class="method-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="method-content">
+                                    <span class="method-label">Email</span>
+                                    <span class="method-value">sanketadsare5@gmail.com</span>
+                                    <span class="method-description">Best for detailed discussions</span>
+                                </div>
+                            </a>
+
+                            <a href="https://linkedin.com/in/yourprofile" class="contact-method" target="_blank">
+                                <div class="method-icon">
+                                    <i class="fab fa-linkedin"></i>
+                                </div>
+                                <div class="method-content">
+                                    <span class="method-label">LinkedIn</span>
+                                    <span class="method-value"></span>
+                                    <span class="method-description">Professional networking</span>
+                                </div>
+                            </a>
+
+                            <a href="https://github.com/sanket8050" class="contact-method" target="_blank">
+                                <div class="method-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div class="method-content">
+                                    <span class="method-label">GitHub</span>
+                                    <span class="method-value">@sanket8050</span>
+                                    <span class="method-description">Code collaboration</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="availability-status">
+                            <div class="status-indicator">
+                                <div class="status-dot"></div>
+                                <span>Currently available for internships and freelance projects</span>
+                            </div>
+                            <div class="response-time">
+                                <i class="fas fa-clock"></i>
+                                <span>Usually responds within 24 hours</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-container">
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-group">
+                                <label for="name">SANKET</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">sanketadsare5@gmail.com</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <span class="btn-text">Send Message</span>
+                                <div class="btn-icon">
+                                    <i class="fas fa-paper-plane"></i>
+                                </div>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <span class="logo-text">SANKET  </span>
+                        <span class="logo-subtitle">Web Developer</span>
+                    </div>
+                    <p class="footer-description">
+                        Computer Science student passionate about creating 
+                        innovative web solutions and digital experiences.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#projects">Projects</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+                            <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
+                            <li><a href="mailto:your.email@example.com">Email</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 sanket8050 Crafted with <i class="fas fa-heart"></i> and lots of 🕸️</p>
+                <div class="footer-social">
+                    <a href="https://github.com/sanket8050" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/sanket-adsare-573659257" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="sanketadsare5@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
