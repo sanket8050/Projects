@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanket Adsare | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="particles-container">
+        <canvas id="particles"></canvas>
+    </div>
+    <div class="bg-animation">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+    </div>
+
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo-container">
+                <span class="logo-text">Sanket Adsare</span>
+                <span class="logo-subtitle">Web Developer</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-sun sun-icon"></i>
+                    <i class="fas fa-moon moon-icon"></i>
+                </button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-name">
+                    <span class="name-part gradient-text">Sanket</span>
+                    <span class="name-part gradient-text">Adsare</span>
+                </h1>
+                <div class="hero-roles">
+                    <span class="typing-text" id="typingText"></span>
+                    <span class="cursor-blink">|</span>
+                </div>
+                <p class="hero-description">
+                    Crafting innovative web solutions with passion and precision. 
+                    A Computer Science student exploring modern technologies.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="15">0</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="3">0</span>
+                        <span class="stat-label">Years</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="100">0</span>
+                        <span class="stat-label">Passion</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">Explore Work</a>
+                    <a href="#contact" class="btn btn-secondary">Connect</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/sanket8050" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:sanketadsare5@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p>Discover my journey in web development</p>
+            </div>
+            <div class="about-content">
+                <div class="about-intro">
+                    <p>I'm a final-year Computer Science student at PVG COET, passionate about creating seamless digital experiences. My journey began with a curiosity for coding, leading me to build real-world applications using modern web technologies.</p>
+                </div>
+                <div class="about-details">
+                    <div class="detail-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <div>
+                            <span class="detail-label">Education</span>
+                            <span class="detail-value">B.E. in ENTC, PVG COET (2022-2026)</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <span class="detail-label">Location</span>
+                            <span class="detail-value">Pune, India</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-language"></i>
+                        <div>
+                            <span class="detail-label">Languages</span>
+                            <span class="detail-value">English, Hindi, Marathi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="skills-section">
+                <h3>Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fab fa-html5"></i><span>HTML5</span><div class="skill-level" data-level="90"></div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-css3-alt"></i><span>CSS3</span><div class="skill-level" data-level="85"></div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-js"></i><span>JavaScript</span><div class="skill-level" data-level="80"></div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-react"></i><span>React</span><div class="skill-level" data-level="75"></div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-git-alt"></i><span>Git</span><div class="skill-level" data-level="70"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Projects</h2>
+                <p>Explore my latest creations</p>
+            </div>
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web-app">Web Apps</button>
+                <button class="filter-btn" data-filter="tool">Tools</button>
+                <button class="filter-btn" data-filter="game">Games</button>
+            </div>
+            <div class="projects-grid" id="projectsGrid"></div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get in Touch</h2>
+                <p>Let's collaborate on something amazing</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-methods">
+                        <a href="mailto:sanketadsare5@gmail.com" class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="method-label">Email</span>
+                                <span class="method-value">sanketadsare5@gmail.com</span>
+                            </div>
+                        </a>
+                        <a href="https://linkedin.com" class="contact-method" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            <div>
+                                <span class="method-label">LinkedIn</span>
+                                <span class="method-value">Connect Professionally</span>
+                            </div>
+                        </a>
+                        <a href="https://github.com/sanket8050" class="contact-method" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <div>
+                                <span class="method-label">GitHub</span>
+                                <span class="method-value">@sanket8050</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="availability-status">
+                        <span class="status-dot"></span>
+                        <span>Available for internships & projects</span>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <span class="logo-text">Sanket Adsare</span>
+                        <span class="logo-subtitle">Web Developer</span>
+                    </div>
+                    <p class="footer-description">Building the future of the web, one project at a time.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sanket Adsare. Crafted with <i class="fas fa-heart"></i> and passion.</p>
+                <div class="footer-social">
+                    <a href="https://github.com/sanket8050" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:sanketadsare5@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

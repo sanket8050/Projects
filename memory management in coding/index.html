@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vector Memory Layout</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: #1a1a2e;
+            color: #eee;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .memory-section {
+            background: #16213e;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px solid #0f3460;
+        }
+
+        .memory-title {
+            color: #4fc3f7;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .stack-memory {
+            background: linear-gradient(135deg, #2d5a87, #1e3a5f);
+            border: 2px solid #4fc3f7;
+        }
+
+        .heap-memory {
+            background: linear-gradient(135deg, #5e4037, #3e2723);
+            border: 2px solid #ff8a65;
+        }
+
+        .memory-box {
+            background: #0f3460;
+            border: 1px solid #4fc3f7;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            display: inline-block;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .heap-box {
+            background: #3e2723;
+            border: 1px solid #ff8a65;
+            border-radius: 5px;
+            padding: 8px;
+            margin: 5px;
+            display: inline-block;
+            min-width: 40px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .pointer-arrow {
+            color: #4fc3f7;
+            font-size: 1.5em;
+            margin: 0 10px;
+        }
+
+        .step {
+            background: #1e1e1e;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #4fc3f7;
+        }
+
+        .step-title {
+            color: #4fc3f7;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .code {
+            background: #2d2d2d;
+            border-radius: 4px;
+            padding: 8px;
+            font-family: 'Courier New', monospace;
+            color: #90ee90;
+            margin: 5px 0;
+        }
+
+        .highlight {
+            background: #ffeb3b;
+            color: #000;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        .memory-address {
+            color: #90ee90;
+            font-size: 0.9em;
+        }
+
+        .control-panel {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .btn {
+            background: #4fc3f7;
+            color: #1a1a2e;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #29b6f6;
+        }
+
+        .btn:disabled {
+            background: #555;
+            cursor: not-allowed;
+        }
+
+        .status {
+            color: #4fc3f7;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .memory-layout {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .memory-column {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .reallocation-warning {
+            background: #ffeb3b;
+            color: #000;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center; color: #4fc3f7; margin-bottom: 30px;">Vector Memory Layout Visualization</h1>
+
+        <div class="control-panel">
+            <button class="btn" onclick="initVector()">Initialize Vector</button>
+            <button class="btn" onclick="pushElement()" id="pushBtn">Push Element</button>
+            <button class="btn" onclick="popElement()" id="popBtn">Pop Element</button>
+            <button class="btn" onclick="reserveMemory()" id="reserveBtn">Reserve(10)</button>
+            <button class="btn" onclick="clearVector()">Clear Vector</button>
+        </div>
+
+        <div class="status" id="status">Click "Initialize Vector" to start</div>
+
+        <div class="memory-layout">
+            <div class="memory-column">
+                <div class="memory-section stack-memory">
+                    <div class="memory-title">STACK MEMORY</div>
+                    <div id="stackContent">
+                        <div class="memory-box">
+                            Vector Object<br>
+                            <span class="memory-address">0x7fff1234</span>
+                        </div>
+                        <div id="vectorObject">
+                            <div class="code">data*: <span id="dataPtr">nullptr</span></div>
+                            <div class="code">size: <span id="sizeValue">0</span></div>
+                            <div class="code">capacity: <span id="capacityValue">0</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="memory-column">
+                <div class="memory-section heap-memory">
+                    <div class="memory-title">HEAP MEMORY</div>
+                    <div id="heapContent">
+                        <div style="text-align: center; color: #ff8a65; padding: 20px;">
+                            No heap allocation yet
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step" id="explanation">
+            <div class="step-title">Vector Memory Management</div>
+            <p>• Vector object lives on the <span class="highlight">stack</span> (small, fixed size)</p>
+            <p>• Actual data lives on the <span class="highlight">heap</span> (dynamic, resizable)</p>
+            <p>• When capacity is exceeded, vector <span class="highlight">reallocates</span> with ~2x capacity</p>
+            <p>• reserve() pre-allocates heap memory to avoid frequent reallocations</p>
+        </div>
+    </div>
+
+    <script>
+        let vectorData = [];
+        let vectorSize = 0;
+        let vectorCapacity = 0;
+        let heapAddress = 0x2000;
+        let elementCounter = 1;
+
+        function updateDisplay() {
+            document.getElementById('sizeValue').textContent = vectorSize;
+            document.getElementById('capacityValue').textContent = vectorCapacity;
+            
+            if (vectorCapacity > 0) {
+                document.getElementById('dataPtr').textContent = `0x${heapAddress.toString(16)}`;
+                displayHeapMemory();
+            } else {
+                document.getElementById('dataPtr').textContent = 'nullptr';
+                document.getElementById('heapContent').innerHTML = 
+                    '<div style="text-align: center; color: #ff8a65; padding: 20px;">No heap allocation yet</div>';
+            }
+
+            updateStatus();
+            updateButtons();
+        }
+
+        function displayHeapMemory() {
+            const heapContent = document.getElementById('heapContent');
+            let html = `<div style="text-align: center; margin-bottom: 10px; color: #ff8a65;">
+                         Address: 0x${heapAddress.toString(16)} | Capacity: ${vectorCapacity}
+                       </div>`;
+            
+            html += '<div style="display: flex; justify-content: center; flex-wrap: wrap;">';
+            
+            for (let i = 0; i < vectorCapacity; i++) {
+                const value = i < vectorSize ? vectorData[i] : 'empty';
+                const style = i < vectorSize ? 'background: #4fc3f7; color: #000;' : 'background: #555; color: #999;';
+                html += `<div class="heap-box" style="${style}">${value}</div>`;
+            }
+            
+            html += '</div>';
+            heapContent.innerHTML = html;
+        }
+
+        function updateStatus() {
+            const status = document.getElementById('status');
+            if (vectorSize === 0 && vectorCapacity === 0) {
+                status.textContent = 'Vector is empty - no heap allocation';
+            } else if (vectorSize === vectorCapacity) {
+                status.textContent = `Vector is full (${vectorSize}/${vectorCapacity}) - next push will trigger reallocation`;
+            } else {
+                status.textContent = `Vector has ${vectorSize} elements, capacity ${vectorCapacity}`;
+            }
+        }
+
+        function updateButtons() {
+            document.getElementById('pushBtn').disabled = false;
+            document.getElementById('popBtn').disabled = vectorSize === 0;
+            document.getElementById('reserveBtn').disabled = vectorCapacity >= 10;
+        }
+
+        function initVector() {
+            vectorData = [];
+            vectorSize = 0;
+            vectorCapacity = 0;
+            heapAddress = 0x2000;
+            elementCounter = 1;
+            updateDisplay();
+        }
+
+        function pushElement() {
+            if (vectorSize >= vectorCapacity) {
+                // Reallocation needed
+                const oldCapacity = vectorCapacity;
+                vectorCapacity = vectorCapacity === 0 ? 1 : vectorCapacity * 2;
+                heapAddress += 0x100; // Simulate new memory address
+                
+                // Show reallocation warning
+                const warning = document.createElement('div');
+                warning.className = 'reallocation-warning';
+                warning.textContent = `Reallocation! Old capacity: ${oldCapacity} → New capacity: ${vectorCapacity}`;
+                document.getElementById('heapContent').appendChild(warning);
+                
+                setTimeout(() => {
+                    if (warning.parentNode) {
+                        warning.parentNode.removeChild(warning);
+                    }
+                }, 2000);
+            }
+            
+            vectorData.push(elementCounter++);
+            vectorSize++;
+            updateDisplay();
+        }
+
+        function popElement() {
+            if (vectorSize > 0) {
+                vectorData.pop();
+                vectorSize--;
+                updateDisplay();
+            }
+        }
+
+        function reserveMemory() {
+            if (vectorCapacity < 10) {
+                vectorCapacity = 10;
+                if (vectorCapacity > 0) {
+                    heapAddress = 0x2000;
+                }
+                updateDisplay();
+            }
+        }
+
+        function clearVector() {
+            vectorData = [];
+            vectorSize = 0;
+            vectorCapacity = 0;
+            updateDisplay();
+        }
+
+          function initVector() {
+            vectorData = [];
+            vectorSize = 0;
+            vectorCapacity = 0;
+            heapAddress = 0x2000;
+            elementCounter = 1;
+            updateDisplay();
+        }
+
+        // Initialize
+        initVector();
+    </script>
+</body>
+</html>
