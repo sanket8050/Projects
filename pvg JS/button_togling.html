@@ -1,0 +1,50 @@
+<html>
+<head>
+
+    <style>
+        button{
+            background-color: black;
+            color:aliceblue;
+            border-radius:20px ;
+            padding: 10px;
+            padding-left: 20px;
+            font-weight: bolder;
+            padding-right: 20px;
+            font-size: 3rem;
+            
+            box-shadow: 7px 7px 7px   rgba(215, 211, 205, 0.3);
+            
+        }
+        body{
+            display: flex   ;
+            background-color: #212121;
+            align-items: center;
+            justify-content: center;
+        }
+
+    </style>
+</head>
+<body>
+    <button onclick="colorfn()" id="btn">click me</button>
+    <script>
+        let togled = false;
+        function colorfn(){
+
+            const x =document.getElementById('btn');
+           if(!togled){
+            x.style.color = 'black';
+            x.style.backgroundColor = 'aliceblue';
+            x.style.boxShadow = "7px 7px 7px   rgba(215, 211, 205, 0.3)";
+        }
+        else{
+            x.style.color = 'aliceblue';
+            x.style.backgroundColor = 'black';
+            x.style.boxShadow = "7px 7px 7px  rgba(0, 0, 0, 0.3)";
+           }
+         togled= !togled;   
+        }
+        
+    </script>
+</body>
+</html>
+
